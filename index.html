@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Ashley 💜</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Great+Vibes&family=Playfair+Display:wght@600&display=swap');
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: radial-gradient(circle, #8A2BE2, #4B0082);
+            color: white;
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            overflow: hidden;
+            padding: 20px;
+            position: relative;
+        }
+        .heading {
+            font-size: 3em;
+            font-family: 'Rubik Dirt ', cursive;
+            color: #FFC0CB;
+            text-shadow: 0 0 15px rgba(255, 192, 203, 0.8);
+            margin-bottom: 20px;
+            animation: glow 2s infinite alternate;
+        }
+        @keyframes glow {
+            0% { text-shadow: 0 0 15px rgba(255, 192, 203, 0.8); }
+            100% { text-shadow: 0 0 25px rgba(255, 105, 180, 1); }
+        }
+        .container {
+            max-width: 85%;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(12px);
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        p {
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.6);
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .start-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 15px 25px;
+            font-size: 20px;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            cursor: pointer;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .start-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: scale(1.1);
+        }
+        .big-image {
+    position: absolute;
+    width: 300px; /* Adjust as needed */
+    height: auto;
+    opacity: 0.9;
+    animation: fall linear infinite;
+}
+
+        .petal {
+            position: absolute;
+            width: 150px;
+            height: auto;
+            opacity: 0.8;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="heading">With Love, To Ashley 💜</h1>
+    <audio id="bg-music" loop>
+        <source src="Assets/Audio/photograph.MP3" type="audio/mp3">
+    </audio>
+
+    <button class="start-btn" onclick="startSlideshow()"> Click Here 📩 </button>
+    
+    <div class="container">
+        <p id="poem"></p>
+    </div>
+
+    <script>
+        const poemLines = [
+            "We keep this love in a photograph,📸",
+            "A moment frozen, yet it lives in our hearts.💞",
+            "Though miles stretch like oceans🌊 between us,",
+            "Your love still feels like home, like art.😘",
+
+            "I see you at night in the moon’s gentle glows,",
+            "Feel your tender voice in the emptiness this room grows.",
+            "Every heartbeat ❤️ is a memory of you,",
+            "Every dream still paints us two.💏",
+
+            "Through every call, every text, every tear 😢,",
+            "I promise, my love, I'm always near.🥰",
+            "No distance can steal what is true,🥲",
+            "Because, Ashley, my heart belongs to you. 💞",
+
+            "In this space where our hands cannot meet,🫴",
+            "Know that my soul is wrapped in your heart. 💖",
+            "You are my always, my forevermore,💟",
+            "And one day, love, we'll be together you know.🫂",
+
+            "Until then, keep this love in a photograph, 📸",
+            "Hold it close when the nights feel rough.🫴",
+            "For though apart, we are never alone,🫂",
+            "You are my heart, My Gem💎",
+            "My Treasure💝, My Ashley🫂🥹, my love🥰.",
+            "I love you, Ashley 💜",
+            "Much more than words can ever express.",
+            "so"
+        ];
+        let index = 0;
+        const poemElement = document.getElementById('poem');
+        const music = document.getElementById("bg-music");
+        
+        function startSlideshow() {
+            document.querySelector(".start-btn").style.display = "none";
+            music.play();
+            showNextLine();
+            createPetals();
+        }
+
+        function showNextLine() {
+            poemElement.style.opacity = 0;
+            setTimeout(() => {
+                poemElement.textContent = poemLines[index];
+                poemElement.style.opacity = 1;
+                index = (index + 1) % poemLines.length;
+                setTimeout(showNextLine, 6000);
+            }, 1000);
+        }
+
+        function createPetals() {
+            const petalImages = [
+                "Assets/Images/petals/rosepetals1.png",
+                "Assets/Images/petals/petal3.png",
+                "Assets/Images/petals/peta1.png",
+"Assets/Images/petals/13304909_rosepetals1 [Converted].png",
+"Assets/Images/petals/peata2.png",
+"Assets/Images/petals/perxtcbn.png",
+"Assets/Images/petals/peta1.png",
+"Assets/Images/petals/petal3.png",
+"Assets/Images/petals/petaln.png",
+"Assets/Images/petals/petavbu.png",
+"Assets/Images/petals/rosepetals1.png",
+
+            ];
+            setInterval(() => {
+                const petal = document.createElement("img");
+                petal.src = petalImages[Math.floor(Math.random() * petalImages.length)];
+                petal.classList.add("petal");
+                petal.style.left = Math.random() * 100 + "vw";
+                petal.style.animationDuration = (Math.random() * 3 + 3) + "s";
+                document.body.appendChild(petal);
+                setTimeout(() => petal.remove(), 5000);
+            }, 200);
+        }
+        function createBigFallingImage() {
+    setInterval(() => {
+        const bigImage = document.createElement("img");
+        bigImage.src = "Assets/Images/image.jpg";
+        bigImage.classList.add("big-image");
+        bigImage.style.left = Math.random() * 100 + "vw";
+        bigImage.style.animationDuration = (Math.random() * 5 + 5) + "s"; // Slower fall
+        document.body.appendChild(bigImage);
+        setTimeout(() => bigImage.remove(), 7000);
+    }, 10000); // Appears every 10 seconds
+}
+function startSlideshow() {
+    document.querySelector(".start-btn").style.display = "none";
+    music.play();
+    showNextLine();
+    createPetals();
+    createBigFallingImage();
+}
+
+    </script>
+</body>
+</html>
